@@ -37,18 +37,17 @@ const convertDocxToMarkdown = (src, dest) => {
 
 const excludedDirectories = [
     ".git",
-    "assets"
+    ".assets",
+    "src"
 ];
 
+const rootDir = path.join(__dirname, '..');
 const processDir = (relativePath) => {
-    const srcDir = path.join('src', relativePath);
-    const fullSrcDir = path.join(__dirname, srcDir);
+    const fullSrcDir = path.join(rootDir, 'src', relativePath);
+    const fullDestDir = path.join(rootDir, relativePath);
 
-    const destDir = relativePath;
-    const fulldestDir = path.join(__dirname, relativePath);
-
-    const srcContents = fs.existsSync(srcDir) ? fs.readdirSync(srcDir) : [];
-    const destContents = fs.existsSync(destDir) ? fs.readdirSync(destDir) : [];
+    const srcContents = fs.existsSync(fullSrcDir) ? fs.readdirSync(fullSrcDir) : [];
+    const destContents = fs.existsSync(fullDestDir) ? fs.readdirSync(fullDestDir) : [];
 
     // process files
     const unionFiles = [...new Set([...srcContents, ...destContents])]
@@ -56,7 +55,9 @@ const processDir = (relativePath) => {
 
     unionFiles.forEach(item => {
         const srcItem = path.join(fullSrcDir, item);
-        const destItem = path.join(fulldestDir, item);
+        const destItem = item.endsWith('.docx') 
+            ? path.join(fullDestDir, item.replace('.docx', '.md'))
+            : path.join(fullDestDir, item);
 
         const srcExists = fs.existsSync(srcItem);
         const destExists = fs.existsSync(destItem);
