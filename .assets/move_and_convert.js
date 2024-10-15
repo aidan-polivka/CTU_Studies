@@ -38,7 +38,8 @@ const convertDocxToMarkdown = (src, dest) => {
 const excludedDirectories = [
     ".git",
     ".assets",
-    "src"
+    "src",
+    "README.md"
 ];
 
 const rootDir = path.join(__dirname, '..');
@@ -47,7 +48,8 @@ const processDir = (relativePath) => {
     const fullDestDir = path.join(rootDir, relativePath);
 
     const srcContents = fs.existsSync(fullSrcDir) ? fs.readdirSync(fullSrcDir) : [];
-    const destContents = fs.existsSync(fullDestDir) ? fs.readdirSync(fullDestDir) : [];
+    const destContents = (fs.existsSync(fullDestDir) ? fs.readdirSync(fullDestDir) : [])
+        .filter(item => !item.endsWith('.md'));
 
     // process files
     const unionFiles = [...new Set([...srcContents, ...destContents])]
@@ -59,28 +61,29 @@ const processDir = (relativePath) => {
             ? path.join(fullDestDir, item.replace('.docx', '.md'))
             : path.join(fullDestDir, item);
 
-        const srcExists = fs.existsSync(srcItem);
-        const destExists = fs.existsSync(destItem);
+        const srcStats = fs.existsSync(srcItem) ? fs.statSync(srcItem) : undefined;
+        const destStats = fs.existsSync(destItem) ? fs.statSync(destItem) : undefined;
 
-        if(srcExists && fs.statSync(srcItem).isDirectory()) {
+        if(srcStats?.isDirectory()) {
             // Ensure directory is created in destination
             fs.mkdirSync(destItem, { recursive: true });
 
             // Recursively process next directory
             processDir(path.join(relativePath, item));
-        } else if(srcExists && fs.statSync(srcItem).isFile()) {
+        } else if(srcStats?.isFile()) {
 
             // Copy file if src is newer than destination or destination doesn't exist
-            if(!destExists || fs.statSync(srcItem).mtime > fs.statSync(destItem).mtime) {
+            if(!destStats || destStats?.mtime < srcStats?.mtime) {
                 copyFile(srcItem, destItem);
             }
         }
 
         // Delete dest folder if src version doesn't exist.
-        if(!srcExists && destExists) {
+        if(!srcStats && destStats) {
             deleteFileOrDirectory(destItem);
         }
     })
 }
 
 processDir('');
+execSync(`git add ${rootDir}`);
