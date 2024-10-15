@@ -344,7 +344,7 @@ contains audit fields defined by the structure titled "Entity Base
 Fields".
 
 ![A screenshot of a computer screen Description automatically
-generated](media/image1.jpeg){width="6.5in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image1.jpeg){width="6.5in"
 height="5.378472222222222in"}
 
 ## Table of Entities, Attributes (with data types), Relationships, and Cardinality Constraint
@@ -723,15 +723,15 @@ with Heartland Escapes continues.
 
 ## DDL -- Database Create, Table Create, and Table Alter FK Constraint Scripts
 
-![](media/image2.emf)
+![](C:\Users\aidan\OneDrive\Documents\CTU/media/image2.emf)
 
 ## DML -- Data Insert, Update, and Delete Scripts
 
-![](media/image3.emf)
+![](C:\Users\aidan\OneDrive\Documents\CTU/media/image3.emf)
 
 ## Reporting -- CrossTab, Aggregation, and Querying scripts
 
-![](media/image4.emf)
+![](C:\Users\aidan\OneDrive\Documents\CTU/media/image4.emf)
 
 ## Analysis of how the project fulfills the mission/goals of the target organization.
 

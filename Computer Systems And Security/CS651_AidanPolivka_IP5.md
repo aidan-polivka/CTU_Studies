@@ -707,7 +707,7 @@ subnet structure to segment our system and enforce specific firewall
 rules. Here is an expected network topography.
 
 ![A diagram of a computer network Description automatically
-generated](media/image1.jpeg){width="6.5in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image1.jpeg){width="6.5in"
 height="5.653472222222222in"}
 
 ## Network Topography Breakdown

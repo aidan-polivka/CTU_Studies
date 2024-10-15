@@ -137,7 +137,7 @@ Console.WriteLine(\"\");
 This is the output of the main function to create our test scenarios:
 
 ![A screen shot of a computer Description automatically
-generated](media/image1.png){width="3.5158727034120734in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image1.png){width="3.5158727034120734in"
 height="4.083347550306212in"}
 
 For our specific test scenarios, we took arrays filled with random
@@ -733,5 +733,5 @@ return true;
 }
 
 ![A screenshot of a computer Description automatically
-generated](media/image2.png){width="2.3974956255468065in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image2.png){width="2.3974956255468065in"
 height="3.1008442694663167in"}

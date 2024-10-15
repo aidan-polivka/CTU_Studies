@@ -407,7 +407,7 @@ instances per app service, so that will be the assumption for our cost
 analysis.
 
 ![A diagram of software components Description automatically
-generated](media/image1.png){width="5.7091065179352585in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image1.png){width="5.7091065179352585in"
 height="3.693840769903762in"}
 
 We have the resource groups split between the application resources, and
@@ -432,7 +432,7 @@ basis assuming that the default hardware resource configurations are
 sufficient regardless of peak activity.
 
 ![A screenshot of a computer Description automatically
-generated](media/image2.png){width="6.5in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image2.png){width="6.5in"
 height="3.2368055555555557in"}
 
 As you can see, this is going to be a pretty low cost solution for
@@ -457,7 +457,7 @@ Escapes' system, the first client being the Point-of-Sale system, and
 the second client being the public website.
 
 ![A diagram of a network Description automatically
-generated](media/image3.png){width="6.5in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image3.png){width="6.5in"
 height="2.7805555555555554in"}
 
 # Future Needs Analysis and Recommendations

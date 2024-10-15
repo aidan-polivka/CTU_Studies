@@ -818,7 +818,7 @@ either requesting packets or sending them, so the process flows need to
 be prepared for both.
 
 ![A diagram of a company Description automatically
-generated](media/image1.png){width="7.1203291776028in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image1.png){width="7.1203291776028in"
 height="2.0547014435695536in"}
 
 We have another visual diagram explaining how the network would serve
@@ -829,7 +829,7 @@ orders. Orders will also be placed through the website. Customer would
 include all necessary shipping information.
 
 ![A diagram of a computer Description automatically
-generated](media/image2.png){width="6.5in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image2.png){width="6.5in"
 height="2.6819444444444445in"}
 
 # Future Needs Analysis and Recommendations (Week 5)

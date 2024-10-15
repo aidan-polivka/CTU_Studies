@@ -456,7 +456,7 @@ uses is a defense system for a fighter jet. Here is the functional tree
 diagram that JETIR generated:
 
 ![A diagram of a system Description automatically
-generated](media/image1.png){width="6.5in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image1.png){width="6.5in"
 height="3.0506944444444444in"}
 
 ### Functions/Product Matrix

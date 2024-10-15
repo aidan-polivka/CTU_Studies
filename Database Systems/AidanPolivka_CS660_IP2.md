@@ -340,7 +340,7 @@ contains audit fields defined by the structure titled "Entity Base
 Fields".
 
 ![A screenshot of a computer screen Description automatically
-generated](media/image1.jpeg){width="6.5in"
+generated](C:\Users\aidan\OneDrive\Documents\CTU/media/image1.jpeg){width="6.5in"
 height="5.378472222222222in"}
 
 ## Table of Entities, Attributes (with data types), Relationships, and Cardinality Constraint

@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+const rootDir = path.join(__dirname, '..');
 // Function to delete a file or directory
 const deleteFileOrDirectory = (filePath) => {
     if (fs.existsSync(filePath)) {
@@ -28,7 +29,7 @@ const convertDocxToMarkdown = (src, dest) => {
     const destMd = dest.replace('.docx', '.md');
     
     try {
-        execSync(`pandoc "${src}" -o "${destMd}"`, { stdio: 'inherit' });
+        execSync(`pandoc --extract-media "${rootDir}" "${src}" -o "${destMd}"`, { stdio: 'inherit' });
         console.log(`Converted: ${src} to ${destMd}`);
     } catch (error) {
         console.error(`Error converting ${src} to ${destMd}: ${error.message}`);
@@ -42,7 +43,6 @@ const excludedDirectories = [
     "README.md"
 ];
 
-const rootDir = path.join(__dirname, '..');
 const processDir = (relativePath) => {
     const fullSrcDir = path.join(rootDir, 'src', relativePath);
     const fullDestDir = path.join(rootDir, relativePath);
