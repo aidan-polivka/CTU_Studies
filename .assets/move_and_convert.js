@@ -29,7 +29,7 @@ const convertDocxToMarkdown = (src, dest) => {
     const destMd = dest.replace('.docx', '.md');
     
     try {
-        execSync(`pandoc --extract-media "${rootDir}" "${src}" -o "${destMd}"`, { stdio: 'inherit' });
+        execSync(`officeToPdf.exe "${src}" "${destMd}"`, { stdio: 'inherit' });
         console.log(`Converted: ${src} to ${destMd}`);
     } catch (error) {
         console.error(`Error converting ${src} to ${destMd}: ${error.message}`);
@@ -47,18 +47,20 @@ const processDir = (relativePath) => {
     const fullSrcDir = path.join(rootDir, 'src', relativePath);
     const fullDestDir = path.join(rootDir, relativePath);
 
-    const srcContents = fs.existsSync(fullSrcDir) ? fs.readdirSync(fullSrcDir) : [];
+    const srcContents = (fs.existsSync(fullSrcDir) ? fs.readdirSync(fullSrcDir) : [])
+        .filter(item => !/^~\$.*(?:\.pptx|\.docx)$/g.test(item));
     const destContents = (fs.existsSync(fullDestDir) ? fs.readdirSync(fullDestDir) : [])
-        .filter(item => !item.endsWith('.md'));
+        .filter(item => !item.endsWith('.pdf'));
 
     // process files
     const unionFiles = [...new Set([...srcContents, ...destContents])]
         .filter(item => !excludedDirectories.includes(item));
 
+    const officeRegex = /(?:\.docx|\.pptx)$/g
     unionFiles.forEach(item => {
         const srcItem = path.join(fullSrcDir, item);
-        const destItem = item.endsWith('.docx') 
-            ? path.join(fullDestDir, item.replace('.docx', '.md'))
+        const destItem = officeRegex.test(item) 
+            ? path.join(fullDestDir, item.replace(officeRegex, '.pdf'))
             : path.join(fullDestDir, item);
 
         const srcStats = fs.existsSync(srcItem) ? fs.statSync(srcItem) : undefined;
